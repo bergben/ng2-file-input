@@ -30,7 +30,7 @@ export class MyAppModule {}
 
 ### Output events
 ```html
-    <ng2-file-input (on-change)="onFileChange($event)"></ng2-file-input> 
+    <ng2-file-input (onChange)="onFileChange($event)"></ng2-file-input> 
 ```
 The on-change event will fire whenever a file has been added or removed, returning the following object:
 ```
