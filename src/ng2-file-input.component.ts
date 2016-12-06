@@ -37,7 +37,7 @@ export class Ng2FileInputComponent implements OnInit {
     @Input('removable') removable: Boolean;
     @Input('show-previews') showPreviews: Boolean;
     @Input('extensions') extensions: string[];
-    @Output('file-added') output = new EventEmitter();
+    @Output('on-change') output = new EventEmitter();
     public currentFiles: File[] = [];
     constructor(private sanitizer: DomSanitizer, private defaultOptions: Ng2FileInputOptions) {
     }

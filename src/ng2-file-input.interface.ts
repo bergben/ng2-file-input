@@ -14,7 +14,7 @@ export class Ng2FileInputOptions implements Ng2FileInputOptionsInterface {
     browseText:string="Browse";
     removeText:string="Remove";
     invalidFileText:string="You have picked an invalid or disallowed file."
-    invalidFileTimeout?:number=8000;
+    invalidFileTimeout:number=8000;
     removable:Boolean=true;
     multiple:Boolean=false;
     showPreviews:Boolean=true;
