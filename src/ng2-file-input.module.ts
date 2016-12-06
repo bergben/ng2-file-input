@@ -1,8 +1,9 @@
 import { NgModule, ModuleWithProviders, OpaqueToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
+import { FileDropModule } from 'angular2-file-drop/build/file-drop-module';
 import { Ng2FileInputComponent } from './ng2-file-input.component';
 import { Ng2FileInputOptionsInterface, Ng2FileInputOptions } from './ng2-file-input.interface';
-import { FileDropDirective } from 'angular2-file-drop/build/file-drop';
 
 export const USER_OPTIONS: OpaqueToken = new OpaqueToken('ng2 file input custom user options');
 
@@ -14,9 +15,11 @@ export function optionsFactory(userOptions: Ng2FileInputOptions): Ng2FileInputOp
 
 @NgModule({
   imports: [
+    BrowserModule,
+    FileDropModule,
     CommonModule
   ],
-  declarations: [Ng2FileInputComponent, FileDropDirective],
+  declarations: [Ng2FileInputComponent],
   exports: [Ng2FileInputComponent]
 })
 export class Ng2FileInputModule {
