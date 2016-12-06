@@ -61,6 +61,7 @@
             }
         }
         .ng2-file-input-file.image .ng2-file-input-file-text.remove, .ng2-file-input-file-text.remove{
+            overflow:hidden;
             position:absolute;
             bottom:0;
             z-index:3;
