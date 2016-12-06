@@ -4,11 +4,28 @@ import { Ng2FileInputOptions, Ng2FileInputOptionsInterface } from './ng2-file-in
 
 @Component({
     selector: 'ng2-file-input',
-    templateUrl: './ng2-file-input.component.html',
+    template: `<div class="ng2-file-input">
+                    <div class="ng2-file-input-invalid text-danger" [hidden]="!invalidFile" [innerHTML]="invalidFileText"></div>
+                    <div fileDrop class="ng2-file-input-drop-container" [ngClass]="{'file-is-over': fileIsOver}" (fileOver)="fileOver($event)"
+                        (onFileDrop)="onFileDrop($event)">
+                        <span [innerHTML]="dropText"></span>
+                        <button type="button" (click)="ng2FileInputSelect.click()" class="btn btn-primary" [innerHTML]="browseText"></button>
+                    </div>
+                    <div class="ng2-file-input-files" *ngIf="showPreviews">
+                        <div *ngFor="let file of currentFiles" class="ng2-file-input-file" [ngClass]="{'image':file.type.indexOf('image')!==-1}">
+                            <span [innerHTML]="file.name" class="ng2-file-input-file-text"></span>
+                            <img [src]="getObjectUrl(file)" *ngIf="file.type.indexOf('image')!==-1">
+                            <span class="ng2-file-input-file-text remove" (click)="removeFile(file)" *ngIf="removable">
+                                <p [innerHTML]="removeText"></p>
+                            </span> 
+                        </div>
+                    </div>
+                    <input type="file" #ng2FileInputSelect (change)="fileSelected($event)" [attr.multiple]="multiple ? true : null">
+                </div>`,
 })
-export class Ng2FileInputComponent implements OnInit{
+export class Ng2FileInputComponent implements OnInit {
     private alreadyEmitted: Boolean = false;
-    private options:Ng2FileInputOptionsInterface;
+    private options: Ng2FileInputOptionsInterface;
     public fileIsOver: Boolean = false;
     public invalidFile: Boolean = false;
     @Input('drop-text') dropText: string;
@@ -22,18 +39,18 @@ export class Ng2FileInputComponent implements OnInit{
     @Input('extensions') extensions: string[];
     @Output('file-added') output = new EventEmitter();
     public currentFiles: File[] = [];
-    constructor(private sanitizer:DomSanitizer, private defaultOptions:Ng2FileInputOptions){
+    constructor(private sanitizer: DomSanitizer, private defaultOptions: Ng2FileInputOptions) {
     }
-    ngOnInit(){
-        this.dropText=this.dropText || this.defaultOptions.dropText;
-        this.browseText=this.browseText || this.defaultOptions.browseText;
-        this.removeText=this.removeText || this.defaultOptions.removeText;
-        this.invalidFileText=this.invalidFileText || this.defaultOptions.invalidFileText;
-        this.invalidFileTimeout=this.invalidFileTimeout || this.defaultOptions.invalidFileTimeout;
-        this.multiple=this.multiple || this.defaultOptions.multiple;
-        this.removable=this.removable || this.defaultOptions.removable;
-        this.showPreviews=this.showPreviews || this.defaultOptions.showPreviews;
-        this.extensions=this.extensions || this.defaultOptions.extensions;
+    ngOnInit() {
+        this.dropText = this.dropText || this.defaultOptions.dropText;
+        this.browseText = this.browseText || this.defaultOptions.browseText;
+        this.removeText = this.removeText || this.defaultOptions.removeText;
+        this.invalidFileText = this.invalidFileText || this.defaultOptions.invalidFileText;
+        this.invalidFileTimeout = this.invalidFileTimeout || this.defaultOptions.invalidFileTimeout;
+        this.multiple = this.multiple || this.defaultOptions.multiple;
+        this.removable = this.removable || this.defaultOptions.removable;
+        this.showPreviews = this.showPreviews || this.defaultOptions.showPreviews;
+        this.extensions = this.extensions || this.defaultOptions.extensions;
     }
     public fileOver(fileIsOver: boolean): void {
         this.fileIsOver = fileIsOver;
@@ -68,12 +85,12 @@ export class Ng2FileInputComponent implements OnInit{
         setTimeout(() => { event.target.value = "" }, 0);
     }
     public removeFile(file: File) {
-        if(this.removable){
+        if (this.removable) {
             for (let i = 0; i < this.currentFiles.length; i++) {
                 if (this.currentFiles[i] === file) {
                     this.currentFiles.splice(i, 1);
                     this.output.emit({
-                        currentFiles:  this.currentFiles,
+                        currentFiles: this.currentFiles,
                         action: "removed",
                         file: file
                     });
@@ -88,7 +105,7 @@ export class Ng2FileInputComponent implements OnInit{
         if (this.isValidFile(file)) {
             this.currentFiles.push(file);
             this.output.emit({
-                currentFiles:  this.currentFiles,
+                currentFiles: this.currentFiles,
                 action: "added",
                 file: file
             });
@@ -102,7 +119,7 @@ export class Ng2FileInputComponent implements OnInit{
             };
             if (this.extensions.indexOf(file.type) === -1 && this.extensions.indexOf(ext) === -1) {
                 this.invalidFile = true;
-                if(this.invalidFileTimeout!==0){
+                if (this.invalidFileTimeout !== 0) {
                     setTimeout(() => {
                         this.invalidFile = false;
                     }, this.invalidFileTimeout);
