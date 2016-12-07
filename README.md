@@ -25,10 +25,14 @@ export class MyAppModule {}
 ```
 
 ### Import the styles
-If you use Sass / Scss you can import it like so:
-`@import "{}/node_modules/ng2-file-input/ng2-file-input.scss";`
+If you use Sass / Scss you can import the styles like so:
+```
+@import "{}/node_modules/ng2-file-input/ng2-file-input.scss";
+```
 else just include the css file like this:
+``` 
 <link href="node_modules/ng2-file-input/ng2-file-input.css" rel="stylesheet" />
+```
 
 ## Usage
 
