@@ -25,6 +25,8 @@ export class MyAppModule {}
 ```
 
 ### Import the styles
+This library uses <a href="https://v4-alpha.getbootstrap.com/getting-started/download/#package-managers">Bootstrap 4</a>, so make sure to install that if you want the default styling to apply.
+
 If you use Sass / Scss you can import the styles like so:
 ```
 @import "{}/node_modules/ng2-file-input/ng2-file-input.scss";
