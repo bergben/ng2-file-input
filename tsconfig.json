@@ -1,20 +1,26 @@
 {
-    "compilerOptions": {
-    "module": "commonjs",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "module": "es2015",
     "target": "es5",
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "sourceMap": false,
+    "sourceMap": true,
     "outDir": "build",
     "moduleResolution": "node",
-    "declaration": true
+    "declaration": true,
+    "stripInternal": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@angular/platform-browser": ["node_modules/@angular/platform-browser"],
+      "@angular/core": ["node_modules/@angular/core"],
+      "angular2-file-drop/build/file-drop-module": ["node_modules/angular2-file-drop/build/file-drop-module"]
+    }
   },
-  "include": [
-    "./ng2-file-input.ts",
-      "src/**/*"
+  "files": [
+    "ng2-file-input.ts"
   ],
-  "exclude": [
-      "node_modules",
-      "**/*.spec.ts"
-  ]
+  "angularCompilerOptions": {
+    "strictMetadataEmit": true
+  }
 }
