@@ -1,5 +1,4 @@
 import { NgModule, ModuleWithProviders, OpaqueToken } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { FileDropModule } from 'angular2-file-drop/build/file-drop-module';
 import { Ng2FileInputComponent } from './ng2-file-input.component';
@@ -16,8 +15,7 @@ export function optionsFactory(userOptions: Ng2FileInputOptions): Ng2FileInputOp
 @NgModule({
   imports: [
     BrowserModule,
-    FileDropModule,
-    CommonModule
+    FileDropModule
   ],
   declarations: [Ng2FileInputComponent],
   exports: [Ng2FileInputComponent]
