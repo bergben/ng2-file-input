@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, ElementRef, Input, Output, EventEmitter, OnInit, Inject, forwardRef } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { Ng2FileInputOptions, Ng2FileInputOptionsInterface } from './ng2-file-input.interface';
 
@@ -39,7 +39,7 @@ export class Ng2FileInputComponent implements OnInit {
     @Input('extensions') extensions: string[];
     @Output('onChange') output = new EventEmitter();
     public currentFiles: File[] = [];
-    constructor(private sanitizer: DomSanitizer, private defaultOptions: Ng2FileInputOptions) {
+    constructor(@Inject(forwardRef(() => DomSanitizer)) private sanitizer: DomSanitizer,@Inject(forwardRef(() => Ng2FileInputOptions)) private defaultOptions: Ng2FileInputOptions) {
     }
     ngOnInit() {
         this.dropText = this.dropText || this.defaultOptions.dropText;
