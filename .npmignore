@@ -9,6 +9,7 @@ pids
 *.seed
 
 
+.vscode
 *.metadata.json
 *.ngsummary.json
 
