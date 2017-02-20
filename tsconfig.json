@@ -3,10 +3,9 @@
     "baseUrl": ".",
     "module": "es2015",
     "target": "es5",
-    "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "sourceMap": true,
-    "outDir": "build",
+    "outDir": "dist",
     "moduleResolution": "node",
     "declaration": true,
     "stripInternal": true,
@@ -14,8 +13,12 @@
     "paths": {
       "@angular/platform-browser": ["node_modules/@angular/platform-browser"],
       "@angular/core": ["node_modules/@angular/core"],
-      "angular2-file-drop/build/file-drop-module": ["node_modules/angular2-file-drop/build/file-drop-module"]
-    }
+      "bergben-angular2-file-drop": ["node_modules/bergben-angular2-file-drop"]
+    },
+    "lib": [
+      "es2015", 
+      "dom"
+    ]
   },
   "files": [
     "ng2-file-input.ts"
