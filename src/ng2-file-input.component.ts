@@ -24,18 +24,18 @@ import { Ng2FileInputOptions, Ng2FileInputOptionsInterface } from './ng2-file-in
                 </div>`,
 })
 export class Ng2FileInputComponent implements OnInit {
-    private alreadyEmitted: Boolean = false;
+    private alreadyEmitted: boolean = false;
     private options: Ng2FileInputOptionsInterface;
-    public fileIsOver: Boolean = false;
-    public invalidFile: Boolean = false;
+    public fileIsOver: boolean = false;
+    public invalidFile: boolean = false;
     @Input('drop-text') dropText: string;
     @Input('browse-text') browseText: string;
     @Input('remove-text') removeText: string;
     @Input('invalid-file-text') invalidFileText: string;
     @Input('invalid-file-timeout') invalidFileTimeout: number;
-    @Input('multiple') multiple: Boolean;
-    @Input('removable') removable: Boolean;
-    @Input('show-previews') showPreviews: Boolean;
+    @Input('multiple') multiple: boolean=null;
+    @Input('removable') removable: boolean=null;
+    @Input('show-previews') showPreviews: boolean=null;
     @Input('extensions') extensions: string[];
     @Output('onChange') output = new EventEmitter();
     public currentFiles: File[] = [];
@@ -47,9 +47,9 @@ export class Ng2FileInputComponent implements OnInit {
         this.removeText = this.removeText || this.defaultOptions.removeText;
         this.invalidFileText = this.invalidFileText || this.defaultOptions.invalidFileText;
         this.invalidFileTimeout = this.invalidFileTimeout || this.defaultOptions.invalidFileTimeout;
-        this.multiple = this.multiple || this.defaultOptions.multiple;
-        this.removable = this.removable || this.defaultOptions.removable;
-        this.showPreviews = this.showPreviews || this.defaultOptions.showPreviews;
+        this.multiple = this.multiple !== null ? this.multiple : this.defaultOptions.multiple;
+        this.removable = this.removable !== null ? this.removable : this.defaultOptions.removable;
+        this.showPreviews = this.showPreviews !== null ? this.showPreviews : this.defaultOptions.showPreviews;
         this.extensions = this.extensions || this.defaultOptions.extensions;
     }
     public fileOver(fileIsOver: boolean): void {
