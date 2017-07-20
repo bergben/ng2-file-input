@@ -3,6 +3,9 @@
 # ng2-file-input
 Angular 2 and beyond component that implements a drag and drop or select file selection, including preview. 
 
+## Demo
+A simple demo is available as a plnkr: http://plnkr.co/edit/eU7VM4j74ljN36bnZbPP?p=preview
+
 ## Install
 ```bash
 $ npm install ng2-file-input --save
