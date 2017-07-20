@@ -1,7 +1,7 @@
 [![Join the chat at https://gitter.im/bergben/bergben](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bergben/bergben?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # ng2-file-input
-Angular 2 component that implements a drag and drop or select file selection, including preview. 
+Angular 2 and beyond component that implements a drag and drop or select file selection, including preview. 
 
 ## Install
 ```bash
@@ -46,16 +46,48 @@ else just include the css file like this:
 ```
 
 ### Output events
+
+#### General: OnAction
 ```html
-    <ng2-file-input (onChange)="onFileChange($event)"></ng2-file-input> 
+    <ng2-file-input (onAction)="onAction($event)"></ng2-file-input> 
 ```
-The on-change event will fire whenever a file has been added or removed, returning the following object:
+The on-action event will fire whenever an action to the file input happens, returning the following object:
 ```
-      currentFiles: //list of the current files
-      action: //either "added" or "removed"
-      file: //the file that has been added or removed
+    currentFiles: //list of the current files
+    action: //see Enum below
+    file: //the file that caused the action
 ```
 
+The emitted Action is an Enum: 
+```
+    export enum Ng2FileInputAction{
+        Removed=0,
+        Added= 1,
+        InvalidDenied = 2,
+        CouldNotRemove = 3,
+        CouldNotAdd = 4,
+    }
+```
+
+You can use this Enum to check which action was emitted in your component like so (import it first of course):
+
+```
+    if(event.action===Ng2FileInputAction.Removed){
+        //...
+    }
+```
+
+#### Specific: OnRemoved, OnAdded, OnInvalidDenied, OnCouldNotRemove, OnCouldNotAdd
+
+```html
+    <ng2-file-input (OnRemoved)="OnRemoved($event)" (OnInvalidDenied)="OnInvalidDenied($event)"></ng2-file-input> 
+```
+
+Those actions fire when each correlating action happens, emitting the following object: 
+```
+    currentFiles: //list of the current files
+    file: //the file that caused the action
+```
 
 ## Options
 ### Available Options
@@ -100,7 +132,8 @@ Please note that instead of camelCase the lisp-case has to be used here.
 All the elements have sepcific css classes, please just look them up using the element inspector.
 
 
-## To-do
+## To-do (Pull requests welcome)
  - Render preview for images better 
  - Preserve EXIF orientation for the images preview
+ - Add animations
  - Provide a demo

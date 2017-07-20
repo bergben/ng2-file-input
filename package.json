@@ -1,7 +1,7 @@
 {
     "name": "ng2-file-input",
     "version": "0.1.13",
-    "description": "Angular 2 component that implements a drag and drop or select file selection, including preview",
+    "description": "Angular 2 and beyond component that implements a drag and drop or select file selection, including preview",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/bergben/ng2-file-input.git"
@@ -23,6 +23,7 @@
     "keywords": [
         "angular",
         "angular2",
+        "angular4",
         "file",
         "input",
         "drag and drop",

@@ -1,3 +1,5 @@
+import { FileInputHandlerService } from './file-input-handler.service';
+import { Ng2FileInputService } from './ng2-file-input.service';
 import { NgModule, ModuleWithProviders, OpaqueToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileDropModule } from 'bergben-angular2-file-drop';
@@ -17,6 +19,7 @@ export function optionsFactory(userOptions: Ng2FileInputOptions): Ng2FileInputOp
     CommonModule,
     FileDropModule
   ],
+  providers: [Ng2FileInputService, FileInputHandlerService],
   declarations: [Ng2FileInputComponent],
   exports: [Ng2FileInputComponent]
 })
