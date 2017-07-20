@@ -6,6 +6,10 @@ Angular 2 and beyond component that implements a drag and drop or select file se
 ## Demo
 A simple demo is available as a plnkr: http://plnkr.co/edit/eU7VM4j74ljN36bnZbPP?p=preview
 
+## Breaking changes in 1.0
+The logged action of the output events is now an Enum instead of a string.
+The output event `onChange` does not exist anymore.
+
 ## Install
 ```bash
 $ npm install ng2-file-input --save
