@@ -141,6 +141,7 @@ export class Ng2FileInputComponent implements OnInit, OnDestroy {
 
     private emitOutput(file:File, action:Ng2FileInputAction):void{
         this.outputAction.emit({
+            id: this.id,
             currentFiles: this.getCurrentFiles(),
             action: action,
             file: file
@@ -148,30 +149,35 @@ export class Ng2FileInputComponent implements OnInit, OnDestroy {
         switch (action){
             case Ng2FileInputAction.Added:
                 this.outputAdded.emit({
+                    id: this.id,
                     currentFiles: this.getCurrentFiles(),
                     file: file
                 })
                 break;
             case Ng2FileInputAction.Removed:
                 this.outputRemoved.emit({
+                    id: this.id,
                     currentFiles: this.getCurrentFiles(),
                     file: file
                 })
                 break;
             case Ng2FileInputAction.InvalidDenied:
                 this.outputInvalidDenied.emit({
+                    id: this.id,
                     currentFiles: this.getCurrentFiles(),
                     file: file
                 })
                 break;
             case Ng2FileInputAction.CouldNotAdd:
                 this.outputCouldNotAdd.emit({
+                    id: this.id,
                     currentFiles: this.getCurrentFiles(),
                     file: file
                 })
                 break;
             case Ng2FileInputAction.CouldNotRemove:
                 this.outputCouldNotRemove.emit({
+                    id: this.id,
                     currentFiles: this.getCurrentFiles(),
                     file: file
                 })

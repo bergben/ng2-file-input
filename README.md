@@ -53,6 +53,7 @@ else just include the css file like this:
 ```
 The on-action event will fire whenever an action to the file input happens, returning the following object:
 ```
+    id: //the file input's id that emits the action (useful if you use the service and handle multiple file inputs, see below)
     currentFiles: //list of the current files
     action: //see Enum below
     file: //the file that caused the action
@@ -85,6 +86,7 @@ You can use this Enum to check which action was emitted in your component like s
 
 Those actions fire when each correlating action happens, emitting the following object: 
 ```
+    id: //the file input's id that emits the action (useful if you use the service and handle multiple file inputs, see below)
     currentFiles: //list of the current files
     file: //the file that caused the action
 ```
