@@ -160,4 +160,3 @@ All the elements have sepcific css classes, please just look them up using the e
  - Render preview for images better 
  - Preserve EXIF orientation for the images preview
  - Add animations
- - Provide a demo
