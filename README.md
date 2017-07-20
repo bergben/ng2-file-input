@@ -89,6 +89,25 @@ Those actions fire when each correlating action happens, emitting the following 
     file: //the file that caused the action
 ```
 
+## Reset the file input or programatically add / remove files
+
+Using the `Ng2FileInputService` you can easily reset the file input (removes all added files) or manually add and remove files. All you need to do so is to give the file input a *UNIQUE* identifier:
+
+```html
+    <ng2-file-input [id]="myFileInputIdentifier"></ng2-file-input> 
+```
+
+```
+    private myFileInputIdentifier:string = "tHiS_Id_IS_sPeeCiAL";
+    constructor(private ng2FileInputService: Ng2FileInputService){
+
+    }
+
+    IResetBecauseICan():void{
+        this.ng2FileInputService.reset(this.myFileInputIdentifier);
+    }
+```
+
 ## Options
 ### Available Options
 |Parameter   	| Type | Explanation | 
