@@ -1,7 +1,7 @@
 [![Join the chat at https://gitter.im/bergben/bergben](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/bergben/bergben?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # ng2-file-input
-Angular 2 and beyond component that implements a drag and drop or select file selection, including preview. 
+Angular 4 and 5 component that implements a drag and drop or select file selection, including preview.
 
 ## Demo
 A simple demo is available as a plnkr: http://plnkr.co/edit/eU7VM4j74ljN36bnZbPP?p=preview
