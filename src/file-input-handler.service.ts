@@ -1,4 +1,4 @@
-import { FileInput } from './ng2-file-input.interface';
+import { FileInput } from './file-input.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable()

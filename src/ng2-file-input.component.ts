@@ -1,12 +1,10 @@
 import { FileInputHandlerService } from './file-input-handler.service';
 import { Component, ElementRef, Input, Output, EventEmitter, OnInit, Inject, forwardRef, OnDestroy } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import {
-    FileInput,
-    Ng2FileInputAction,
-    Ng2FileInputOptions,
-    Ng2FileInputOptionsInterface,
-} from './ng2-file-input.interface';
+import { Ng2FileInputOptionsInterface } from './ng2-file-input-options.interface';
+import { Ng2FileInputOptions } from './ng2-file-input-options.class';
+import { Ng2FileInputAction } from './ng2-file-input-action.enum';
+import { FileInput } from './file-input.interface';
 
 @Component({
     selector: 'ng2-file-input',

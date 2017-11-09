@@ -10,6 +10,12 @@
         "declaration": true,
         "stripInternal": true,
         "skipLibCheck": true,
+        "paths": {
+            "@angular/*": [
+                "node_modules/@angular/*"
+            ],
+            "bergben-angular2-file-drop": ["node_modules/bergben-angular2-file-drop"]
+        },
         "lib": [
             "es2015",
             "dom"
@@ -17,6 +23,10 @@
     },
     "files": [
         "ng2-file-input.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "dist"
     ],
     "angularCompilerOptions": {
         "strictMetadataEmit": true

@@ -1,4 +1,4 @@
-import { FileInput } from './ng2-file-input.interface';
+import { FileInput } from './file-input.interface';
 import { FileInputHandlerService } from './file-input-handler.service';
 import { forwardRef, Inject, Injectable } from '@angular/core';
 

@@ -4,7 +4,8 @@ import { NgModule, ModuleWithProviders, InjectionToken } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FileDropModule } from 'bergben-angular2-file-drop';
 import { Ng2FileInputComponent } from './ng2-file-input.component';
-import { Ng2FileInputOptionsInterface, Ng2FileInputOptions } from './ng2-file-input.interface';
+import { Ng2FileInputOptionsInterface } from './ng2-file-input-options.interface';
+import { Ng2FileInputOptions } from './ng2-file-input-options.class';
 
 export const USER_OPTIONS: InjectionToken<string> = new InjectionToken('ng2 file input custom user options');
 
