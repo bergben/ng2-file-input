@@ -12,9 +12,9 @@
         "skipLibCheck": true,
         "paths": {
             "@angular/*": [
-                "node_modules/@angular/*"
+                "../node_modules/@angular/*"
             ],
-            "bergben-angular2-file-drop": ["node_modules/bergben-angular2-file-drop"]
+            "bergben-angular2-file-drop": ["../node_modules/bergben-angular2-file-drop"]
         },
         "lib": [
             "es2015",
