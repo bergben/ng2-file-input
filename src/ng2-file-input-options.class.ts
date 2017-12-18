@@ -8,6 +8,7 @@ export class Ng2FileInputOptions implements Ng2FileInputOptionsInterface {
     invalidFileTimeout:number=8000;
     removable:boolean=true;
     multiple:boolean=false;
+    accept:string='';
     showPreviews:boolean=true;
     extensions:string[]=[];
 }
