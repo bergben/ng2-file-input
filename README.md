@@ -128,6 +128,7 @@ Using the `Ng2FileInputService` you can easily reset the file input (removes all
 | invalidFileTimeout | number | how long the error should appear, set to 0 if it should stay |
 | multiple      | Boolean | wether multiple files can be added or not |
 | showPreviews      | Boolean | show a preview of the selected file / files |
+| accept | string | string for the input field accept attribute |
 | removable  | Boolean | should files be removable (through the preview) |
 | extensions | string[] | the allowed extensions to be selected. Can either be ['image/jpeg', ...] or ['jpg',...]|.
 
