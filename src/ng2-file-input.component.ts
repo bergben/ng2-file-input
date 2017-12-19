@@ -24,7 +24,7 @@ import { FileInput } from './file-input.interface';
                             </span> 
                         </div>
                     </div>
-                    <input type="file" #ng2FileInputSelect (change)="fileSelected($event)" [attr.multiple]="multiple ? true : null">
+                    <input type="file" #ng2FileInputSelect (change)="fileSelected($event)" [accept]="accept" [attr.multiple]="multiple ? true : null">
                 </div>`,
 })
 export class Ng2FileInputComponent implements OnInit, OnDestroy {
@@ -39,6 +39,7 @@ export class Ng2FileInputComponent implements OnInit, OnDestroy {
     @Input('invalid-file-text') invalidFileText: string;
     @Input('invalid-file-timeout') invalidFileTimeout: number;
     @Input('multiple') multiple: boolean=null;
+    @Input('accept') accept: string;
     @Input('removable') removable: boolean=null;
     @Input('show-previews') showPreviews: boolean=null;
     @Input('extensions') extensions: string[];
@@ -57,6 +58,7 @@ export class Ng2FileInputComponent implements OnInit, OnDestroy {
         this.invalidFileText = this.invalidFileText || this.defaultOptions.invalidFileText;
         this.invalidFileTimeout = this.invalidFileTimeout || this.defaultOptions.invalidFileTimeout;
         this.multiple = this.multiple !== null ? this.multiple : this.defaultOptions.multiple;
+        this.accept = this.accept !== null ? this.accept : this.defaultOptions.accept;
         this.removable = this.removable !== null ? this.removable : this.defaultOptions.removable;
         this.showPreviews = this.showPreviews !== null ? this.showPreviews : this.defaultOptions.showPreviews;
         this.extensions = this.extensions || this.defaultOptions.extensions;
