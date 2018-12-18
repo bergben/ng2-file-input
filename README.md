@@ -57,7 +57,7 @@ otherwise just include the css file like this in your styles.css:
 
 ### Output events
 
-#### General: OnAction
+#### General: onAction
 ```html
     <ng2-file-input (onAction)="onAction($event)"></ng2-file-input> 
 ```
@@ -88,10 +88,10 @@ You can use this Enum to check which action was emitted in your component like s
     }
 ```
 
-#### Specific: OnRemoved, OnAdded, OnInvalidDenied, OnCouldNotRemove, OnCouldNotAdd
+#### Specific: onRemoved, onAdded, onInvalidDenied, onCouldNotRemove, onCouldNotAdd
 
 ```html
-    <ng2-file-input (OnRemoved)="OnRemoved($event)" (OnInvalidDenied)="OnInvalidDenied($event)"></ng2-file-input> 
+    <ng2-file-input (onRemoved)="onRemoved($event)" (onInvalidDenied)="onInvalidDenied($event)"></ng2-file-input> 
 ```
 
 Those actions fire when each correlating action happens, emitting the following object: 
